@@ -13,6 +13,6 @@ module.exports = {
   rules: {
     'max-len': ['error', { code: 120 }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    'object-curly-newline': ['error', { minProperties: 6, multiline: true }],
+    'object-curly-newline': 'off',
   },
 };
