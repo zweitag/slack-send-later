@@ -1,0 +1,24 @@
+{
+  "name": "slack-send-later",
+  "version": "1.0.0",
+  "description": "A Slack Integration to schedule messages.",
+  "main": "app.js",
+  "repository": "https://github.com/zweitag/slack-send-later",
+  "author": "zweitag",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint --ext .js --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@slack/bolt": "^2.6.1",
+    "sugar-date": "^2.0.6"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
