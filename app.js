@@ -130,12 +130,12 @@ app.error((error) => {
   console.error(error);
 });
 
-app.event('tokens_revoked', async ({ event, payload }) => {
-  const teamId = payload.team_id;
-  const userTokens = event.tokens.oauth;
-  if (!userTokens || userTokens.length === 0) return;
+app.event('tokens_revoked', async ({ event, body }) => {
+  const teamId = body.team_id;
+  const userIds = event.tokens.oauth;
+  if (!userIds || userIds.length === 0) return;
 
-  await Installation.destroy({ where: { teamId, data: { user: { token: { [Op.in]: userTokens } } } } });
+  await Installation.destroy({ where: { teamId, userId: { [Op.in]: userIds } } });
 });
 
 (async () => {
