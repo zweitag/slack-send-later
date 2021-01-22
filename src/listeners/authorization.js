@@ -17,6 +17,13 @@ async function onAuthorizationSuccess(installation, installOptions, _request, re
 
   const client = new WebClient(botToken);
   await client.chat.postMessage({ channel: userId, blocks: messages.authorizationSuccessful });
+  await client.views.publish({
+    user_id: userId,
+    view: {
+      type: 'home',
+      blocks: messages.showHelp,
+    },
+  });
   const { user } = await client.users.info({ user: userId, include_locale: true });
 
   const context = {

@@ -130,6 +130,28 @@ app.error((error) => {
   console.error(error);
 });
 
+app.event('app_home_opened', async ({ event, client, body }) => {
+  const installation = Installation.findOne({ where: { teamId: body.team_id, userId: event.user } });
+  let messageBlocks;
+  if (installation) {
+    messageBlocks = messages.showHelp;
+  } else {
+    const authorizationUrl = await receiver.installer.generateInstallUrl({
+      scopes: INSTALLATION_OPTIONS.scopes,
+      userScopes: INSTALLATION_OPTIONS.userScopes,
+    });
+    messageBlocks = messages.errors.notAuthorized({ authorizationUrl });
+  }
+
+  await client.views.publish({
+    user_id: event.user,
+    view: {
+      type: 'home',
+      blocks: messageBlocks,
+    },
+  });
+});
+
 app.event('tokens_revoked', async ({ event, body }) => {
   const teamId = body.team_id;
   const userIds = event.tokens.oauth;
