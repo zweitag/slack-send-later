@@ -74,6 +74,14 @@ async function processCommand({ command, client, context, payload, respond }) {
     return listScheduledMessages({ command, context, client, respond });
   }
 
+  if (command.text === 'help') {
+    return respond({
+      response_type: 'ephemeral',
+      replace_original: true,
+      blocks: messages.showHelp,
+    });
+  }
+
   const { token: userToken } = context.user;
 
   const matches = /(.+)\s(in|at)\s(.+)$/gm.exec(command.text);
