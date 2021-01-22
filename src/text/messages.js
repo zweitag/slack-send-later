@@ -321,6 +321,25 @@ You can only delete scheduled messages that have not been sent yet or are not sc
             text: 'Cancel Message',
             emoji: true,
           },
+          confirm: {
+            title: {
+              type: 'plain_text',
+              text: 'Cancel Message',
+            },
+            text: {
+              type: 'mrkdwn',
+              text: 'Are you sure, you want to *cancel* that scheduled message?',
+            },
+            confirm: {
+              type: 'plain_text',
+              text: 'Cancel Message',
+            },
+            deny: {
+              type: 'plain_text',
+              text: 'Keep it!',
+            },
+            style: 'danger',
+          },
           value: JSON.stringify(removeActionPayload),
           action_id: 'remove-scheduled-message',
         },
