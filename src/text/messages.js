@@ -153,6 +153,63 @@ You can only delete scheduled messages that have not been sent yet or are not sc
     },
   ],
 
+  showExamples: [
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: "Hello there! :wave: I've heard you are unsure how to schedule your message with the `/later` command. No worries, I got you covered :wink: Here are some examples:",
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: 'There are two ways for you to schedule messages:\n:one: Either by providing a date with the keyword `at` or :two: by providing a time (duration) with the keyword `in`.',
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: ':one: You can specify any date in a machine-readable format. But you can also try out some human-readable stuff; check this out:',
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: "• `/later Have you read Lord of the Rings yet? :ring: at 9am tomorrow`\n• `/later Don't forget to read Lord of the Rings! at 9am 2 days from now`\n• `/later Dude, I told you to read the book at 16:00 today`\n• `/later You finally read it??! at 3 Aug 9am`\n• `/later Are you ready to rumble? at next week Thursday 9am`\n     (You can also omit the `week` literal)\n• `/later I got pie! at June 3rd, 10:00`\n• Generally, you can try nearly anything (the library) <https://sugarjs.com/dates/|Sugar> understands",
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: ':two: When it comes to durations, the following examples might help you:',
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: '• `/later Do you have time for a Pair-Programming session? in 1h30`\n• `/later Can you order some pencils, please? in 1w2d1h`\n• `/later I spilled some coffe, can you help me clean up? in 30 minutes`\n• In general, the duration format can look like this:\n    • `12w3d4h30m` stands for 12 weeks, 3 days, 4 hours and 30 minutes\n       (Here, you can omit the `m` which stands for minutes)\n    • `1 week 2 hours 30` is also possible\n       (Notice that you can also use the literals `minutes`, `min` or no literal for minutes;\n       i.e., `/later What are you doing? in 30` results into the message being sent in\n       30 minutes)',
+      },
+    },
+    {
+      type: 'divider',
+    },
+    {
+      type: 'context',
+      elements: [
+        {
+          type: 'mrkdwn',
+          text: ':eyes: View all your scheduled messages for this channel with `/later list`\n:question: Get help at any time with `/later help`',
+        },
+      ],
+    },
+  ],
+
   listScheduledMessages: {
     noMessages: [
       {
