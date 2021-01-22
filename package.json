@@ -12,7 +12,11 @@
     "lint": "eslint --ext .js --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@slack/bolt": "^2.6.1",
+    "@slack/bolt": "^3.0.0",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.4.0",
+    "sequelize-cli": "^6.2.0",
     "sugar-date": "^2.0.6"
   },
   "devDependencies": {
