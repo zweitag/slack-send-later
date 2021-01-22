@@ -84,7 +84,6 @@ Click the button below to authorize _Send Later_.`,
         type: 'section',
         text: {
           type: 'mrkdwn',
-          // eslint-disable-next-line max-len
           text: ':open_mouth: Darn. No (valid) time option was given.\nThe expected format is `/later <message> (at|in) <time>`.',
         },
       },
@@ -94,6 +93,36 @@ Click the button below to authorize _Send Later_.`,
         text: {
           type: 'mrkdwn',
           text: `Here is the command you sent:\n\`\`\`/later ${command}\`\`\``,
+        },
+      },
+    ],
+
+    timeInPast: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: ':open_mouth: Darn, if only I could time-travel!\nYour time option is in the past.',
+        },
+      },
+    ],
+
+    timeTooFar: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: ':open_mouth: Darn, that\'s far into the future!\nYour message should be scheduled to be sent within the next 120 days.',
+        },
+      },
+    ],
+
+    messageTooLong: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: ':open_mouth: Darn, what a long message!\nYour message should not consist of more than 40,000 characters.',
         },
       },
     ],
@@ -260,7 +289,6 @@ You can only delete scheduled messages that have not been sent yet or are not sc
         type: 'section',
         text: {
           type: 'mrkdwn',
-          // eslint-disable-next-line max-len
           text: ':no_entry_sign: You cannot delete a scheduled message, which has already been posted or will be posted within the next 60 seconds.',
         },
       },

@@ -119,31 +119,57 @@ async function processCommand({ command, client, context, payload, respond }) {
     });
   }
 
-  const { scheduled_message_id: scheduledMessageId } = await client.chat.scheduleMessage({
-    channel: command.channel_id,
-    text: message,
-    post_at: date.getTime() / 1000,
-    as_user: true,
-    token: userToken,
-  });
+  try {
+    const { scheduled_message_id: scheduledMessageId } = await client.chat.scheduleMessage({
+      channel: command.channel_id,
+      text: message,
+      post_at: date.getTime() / 1000,
+      as_user: true,
+      token: userToken,
+    });
 
-  return respond({
-    response_type: 'ephemeral',
-    replace_original: true,
-    blocks: [
-      ...messages.showMessage.introduction,
-      ...messages.scheduledMessage({
-        text: message,
-        date: formatDate({ date, timezone: context.user.timezone }),
-        removeActionPayload: {
-          messageId: scheduledMessageId,
-          channelId: command.channel_id,
-          userId: payload.user_id,
-          teamId: payload.team_id,
-        },
-      }),
-    ],
-  });
+    return respond({
+      response_type: 'ephemeral',
+      replace_original: true,
+      blocks: [
+        ...messages.showMessage.introduction,
+        ...messages.scheduledMessage({
+          text: message,
+          date: formatDate({ date, timezone: context.user.timezone }),
+          removeActionPayload: {
+            messageId: scheduledMessageId,
+            channelId: command.channel_id,
+            userId: payload.user_id,
+            teamId: payload.team_id,
+          },
+        }),
+      ],
+    });
+  } catch (error) {
+    let errorMessage;
+    switch (error.data.error) {
+      case 'time_in_past':
+        errorMessage = messages.errors.timeInPast;
+        break;
+      case 'time_too_far':
+        errorMessage = messages.errors.timeTooFar;
+        break;
+      case 'msg_too_long':
+        errorMessage = messages.errors.messageTooLong;
+        break;
+      default:
+        throw error;
+    }
+
+    return respond({
+      response_type: 'ephemeral',
+      replace_original: true,
+      blocks: [
+        ...errorMessage,
+        ...messages.yourLastCommandWas({ command: command.text }),
+      ],
+    });
+  }
 }
 
 module.exports = {
