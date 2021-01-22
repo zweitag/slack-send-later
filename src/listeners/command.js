@@ -93,16 +93,17 @@ async function processCommand({ command, client, context, payload, respond }) {
   const { token: userToken } = context.user;
 
   const matches = /(.+)\s(in|at)\s(.+)$/gm.exec(command.text);
-  const message = matches[1];
-  const time = matches[3];
 
-  if (typeof time === 'undefined') {
+  if (!matches) {
     return respond({
       response_type: 'ephemeral',
       replace_original: true,
       blocks: messages.errors.noTimeOptionGiven({ command: command.text }),
     });
   }
+
+  const message = matches[1];
+  const time = matches[3];
 
   let date;
   try {
