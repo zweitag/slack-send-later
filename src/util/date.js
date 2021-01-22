@@ -1,8 +1,12 @@
 const Sugar = require('sugar-date');
+// eslint-disable-next-line max-len
+const DURATION_REGEX = /^((\d+)\s?w(eek(s)?)?)?\s?((\d+)\s?d(ay(s)?)?)?\s?((\d+)\s?h(our(s)?)?)?\s?((\d+)(\s?m(in(ute)?(s)?)?)?)?$/;
 
 function parseDate({ date, type, timezoneOffset }) {
+  const dateOption = date.trim();
+
   if (type === 'date') {
-    const parsedDate = Sugar.Date.create(date, { setUTC: true });
+    const parsedDate = Sugar.Date.create(dateOption, { setUTC: true });
     const utcSeconds = parsedDate.getTime() / 1000;
 
     const dateObject = new Date(0);
@@ -12,11 +16,11 @@ function parseDate({ date, type, timezoneOffset }) {
   }
 
   if (type === 'duration') {
-    const matches = /^((\d+)w)?((\d+)d)?((\d+)h)?((\d+)m?)?$/.exec(date);
+    const matches = DURATION_REGEX.exec(dateOption);
     const weeks = matches[2] ? parseInt(matches[2], 10) * 7 * 24 * 60 : 0;
-    const days = matches[4] ? parseInt(matches[4], 10) * 24 * 60 : 0;
-    const hours = matches[6] ? parseInt(matches[6], 10) * 60 : 0;
-    const minutes = matches[8] ? parseInt(matches[8], 10) : 0;
+    const days = matches[6] ? parseInt(matches[6], 10) * 24 * 60 : 0;
+    const hours = matches[10] ? parseInt(matches[10], 10) * 60 : 0;
+    const minutes = matches[14] ? parseInt(matches[14], 10) : 0;
 
     const durationInMinutes = weeks + days + hours + minutes;
     const parsedDate = Sugar.Date.create(`in ${durationInMinutes} minutes`, { setUTC: true });
