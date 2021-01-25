@@ -139,3 +139,7 @@ Hence, if you want to utilize this framework and adapt some views, you will have
 
 If you want to deploy your modified version, you will have to run first \
 `NODE_ENV=production npx tailwindcss-cli@latest build public/assets/tailwind.css -o public/assets/tailwind.css` to minify your tailwind stylesheet.
+
+### Further Reading
+
+This app is based on the offical Slack package: [@slack/boltjs](https://slack.dev/bolt-js/tutorial/getting-started).
