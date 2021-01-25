@@ -99,7 +99,7 @@ In case, you want to test the app or add further functionalities, follow this se
 
 ### Prerequisites
 
-- **node** $\geq$ 12.6
+- **node** >= 12.6
 - a running **postgres** instance.
 - An [**ngrok**](https://ngrok.com) account with the **ngrok** CLI
 - A Slack account and a Slack workspace (you can use to develop and test)
