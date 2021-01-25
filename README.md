@@ -121,8 +121,8 @@ In case, you want to test the app or add further functionalities, follow this se
     - run database migrations with `npx sequelize-cli db:migrate`
 5. Run server with `yarn start`
 6. Create a tunnel to your localhost with `ngrok http 3000` (or the respective port you chose)
-7. Similar to the step [**Setup Links for Slack App**](#setup-links-for-slack-app), \
-   you have to setup the exact same links, except you will be using the hostname of your ngrok tunnel (preferably, the HTTPS one)
+7. When setting up your **Request URL**s in the step [Create a Slack App](#create-a-slack-app), \
+   you have to setup the same paths, except you will be using the hostname of your ngrok tunnel (preferably, the HTTPS one)
 8. Open the URL `https://<YOUR NGROK HOSTNAME GOES HERE>.ngrok.io/slack/install` \
    and click on the *Add to Slack* button.
 9. Follow the OAuth flow to install the app to your test workspace
