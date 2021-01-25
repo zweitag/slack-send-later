@@ -1,4 +1,5 @@
 const { App, ExpressReceiver } = require('@slack/bolt');
+const express = require('express');
 const { Op } = require('sequelize');
 
 // eslint-disable-next-line import/newline-after-import
@@ -65,6 +66,10 @@ const receiver = new ExpressReceiver({
     },
   },
 });
+
+receiver.app.use(express.static(`${__dirname}/public`));
+receiver.app.set('view engine', 'ejs');
+receiver.app.set('views', `${__dirname}/src/views`);
 
 const app = new App({ receiver });
 
