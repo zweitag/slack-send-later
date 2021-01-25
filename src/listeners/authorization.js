@@ -1,19 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const { WebClient } = require('@slack/web-api');
 const axios = require('axios');
+
 const messages = require('../text/messages');
 const { installations: Installation } = require('../models');
 const { processCommand } = require('./command');
 
 async function onAuthorizationSuccess(installation, installOptions, _request, response) {
-  response.end('successful');
-
   const {
     team: { id: teamId },
     user: { id: userId, token: userToken },
     bot: { token: botToken },
+    appId,
   } = installation;
   const { metadata } = installOptions;
+
+  response.writeHead(301, {
+    Location: `${process.env.BASE_URL}/authorization/success?team_id=${teamId}&app_id=${appId}`,
+  });
+  response.end();
 
   const client = new WebClient(botToken);
   await client.chat.postMessage({ channel: userId, blocks: messages.authorizationSuccessful });
@@ -57,7 +62,9 @@ async function onAuthorizationSuccess(installation, installOptions, _request, re
 }
 
 async function onAuthorizationFailure(_error, installOptions, _request, response) {
-  response.end('failure');
+  response.writeHead(301, { Location: `${process.env.BASE_URL}/authorization/failure` });
+  response.end();
+
   if (!installOptions) return;
 
   const { teamId, metadata } = installOptions;

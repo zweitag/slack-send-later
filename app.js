@@ -71,6 +71,17 @@ receiver.app.use(express.static(`${__dirname}/public`));
 receiver.app.set('view engine', 'ejs');
 receiver.app.set('views', `${__dirname}/src/views`);
 
+receiver.app.get('/authorization/success', (req, res) => {
+  const { team_id: teamId, app_id: appId } = req.query;
+  const slackUrl = teamId && appId ? `slack://app?team=${teamId}&id=${appId}&tab=home` : 'slack://open';
+
+  res.render('authorization/success', { slackUrl });
+});
+
+receiver.app.get('/authorization/failure', (req, res) => {
+  res.render('authorization/failure');
+});
+
 const app = new App({ receiver });
 
 app.command('/later', addUserContext, async ({ ack, body, command, client, context, payload, respond }) => {

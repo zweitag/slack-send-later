@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/assets/tailwind.css" rel="stylesheet">
+</head>
+<body>
+  <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+      <div class="absolute inset-0 bg-green shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+      <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+        <div class="max-w-md mx-auto">
+          <div class="flex items-center">
+            <img src="/images/logo.svg" class="h-16" />
+            <h1 class="inline-block font-bold text-3xl">Send Later</h1>
+          </div>
+          <h1></h1>
+          <div class="divide-y divide-gray-200">
+            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+              <p>You successfully authorized <span class="font-semibold">Send Later</span>!</p>
+              <p>Now, you can schedule your Slack messages conviently. Just return to your Slack application and try it out! <span>Send Later</span> provides the following commands:</p>
+              <ul class="list-disc space-y-2">
+                <li class="flex items-start">
+                  <span class="h-6 flex items-center sm:h-7">
+                    <svg class="flex-shrink-0 h-5 w-5 text-green" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <p class="ml-2">
+                    <code class="text-sm font-bold text-gray-900">/later &#60;message&#62; (at|in) &#60;time&#62;</code>
+                    to schedule a new message
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span class="h-6 flex items-center sm:h-7">
+                    <svg class="flex-shrink-0 h-5 w-5 text-green" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <p class="ml-2">
+                    <code class="text-sm font-bold text-gray-900">/later list</code>
+                    to list all your scheduled messages for your current chat
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span class="h-6 flex items-center sm:h-7">
+                    <svg class="flex-shrink-0 h-5 w-5 text-green" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <p class="ml-2">
+                    <code class="text-sm font-bold text-gray-900">/later help</code>
+                    if you need any help
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span class="h-6 flex items-center sm:h-7">
+                    <svg class="flex-shrink-0 h-5 w-5 text-green" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <p class="ml-2">
+                    <code class="text-sm font-bold text-gray-900">/later examples</code>
+                    if you want to see example usage when it comes to scheduling a new message
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
+              <p>
+                <a href="<%= slackUrl %>" class="text-green hover:underline"> Back to Slack &rarr; </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

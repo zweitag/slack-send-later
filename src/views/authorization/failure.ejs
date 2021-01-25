@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/assets/tailwind.css" rel="stylesheet">
+</head>
+<body>
+  <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+      <div class="absolute inset-0 bg-red shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+      <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+        <div class="max-w-md mx-auto">
+          <div class="flex items-center">
+            <img src="/images/logo.svg" class="h-16" />
+            <h1 class="inline-block font-bold text-3xl">Send Later</h1>
+          </div>
+          <h1></h1>
+          <div class="divide-y divide-gray-200">
+            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+              <p>Oops. Something went wrong.</p>
+              <p><span class="font-semibold">Send Later</span> is not auhorized. Return to Slack and try again!</p>
+            </div>
+            <div class="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
+              <p>
+                <a href="slack://open" class="text-red hover:underline"> Back to Slack &rarr; </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
