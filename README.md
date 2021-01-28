@@ -34,6 +34,18 @@ This application is the corresponding server for your Slack App which will liste
 
 <img alt="Display Information" src="./docs/display-information.png" width="450px">
 
+#### Deploy this Express application
+
+Last, you need to deploy this application. You will have to set the environment variables
+that are listed in [`.env.example`](.env.example) accordingly.
+
+In the [Slack Web API](https://api.slack.com/apps), select your app's *Basic Information* and
+scroll down to **App Credentials**. Copy your Slack app's Client ID, Client Secret, and
+Signing Secret and paste them into the ENV variables `SLACK_CLIENT_ID`, `SLACK_CLIENT_SECRET`,
+and `SLACK_SIGNING_SECRET`.
+
+(Don't forget the `BASE_URL` which has to equal your domain you used when configuring the Slack App.)
+
 #### Setup Permissions
 
 1. To setup the permissions, go to *Features > OAuth & Permissions*
@@ -80,18 +92,6 @@ This application is the corresponding server for your Slack App which will liste
     - `app_home_opened`
     - `tokens_revoked`
 4. Hit **Save Changes** and you've completed the first half!
-
-### Deploy this Express application
-
-Last, you need to deploy this application. You will have to set the environment variables
-that are listed in [`.env.example`](.env.example) accordingly.
-
-In the [Slack Web API](https://api.slack.com/apps), select your app's *Basic Information* and
-scroll down to **App Credentials**. Copy your Slack app's Client ID, Client Secret, and
-Signing Secret and paste them into the ENV variables `SLACK_CLIENT_ID`, `SLACK_CLIENT_SECRET`,
-and `SLACK_SIGNING_SECRET`.
-
-(Don't forget the `BASE_URL` which has to equal your domain you used when configuring the Slack App.)
 
 ## Development Setup
 
