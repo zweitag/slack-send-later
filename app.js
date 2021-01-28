@@ -82,6 +82,10 @@ receiver.app.get('/authorization/failure', (req, res) => {
   res.render('authorization/failure');
 });
 
+receiver.app.get('/.well-known/health-check', (req, res) => {
+  res.end('ok');
+});
+
 const app = new App({ receiver });
 
 app.command('/later', addUserContext, async ({ ack, body, command, client, context, payload, respond }) => {
