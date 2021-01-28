@@ -17,6 +17,12 @@ const defaultConfig = {
   database: pathname.substring(1),
   dialect: 'postgres',
   ssl: true,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 };
 
 module.exports = {
