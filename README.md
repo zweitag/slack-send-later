@@ -34,25 +34,6 @@ This application is the corresponding server for your Slack App which will liste
 
 <img alt="Display Information" src="./docs/display-information.png" width="450px">
 
-#### Setup your App's Home
-
-1. Now, go to *Features > App Home* and activate **App Home**.
-2. Then, scroll down to **Show Tabs** and activate both ticks for *Home Tab* and *Message Tab*
-
-#### Setup Interactivity
-
-1. Then, go to *Features > Interactivity & Shortcuts* and activate the toggle
-2. In the text field **Request URL**, enter the domain of the server application \
-   suffixed by the path `/slack/events`, i.e., `https://nice-domain.com/slack/events`
-3. Next, go to *Features > Slash Commands* and hit **Create New Command**
-
-<img alt="Display Information" src="./docs/create-command.png" width="450px">
-
-4. Set it up as specified in the image (or to your liking), \
-   but remember to set your **Request URL** to `https://nice-domain.com/slack/events` \
-   and to tick **Escape channels, users, and links sent to your app**
-5. Hit **Save Changes**
-
 #### Setup Permissions
 
 1. To setup the permissions, go to *Features > OAuth & Permissions*
@@ -71,6 +52,25 @@ This application is the corresponding server for your Slack App which will liste
       - `groups:read`
       - `im:read`
       - `mpim:read`
+
+#### Setup your App's Home
+
+1. Now, go to *Features > App Home* and activate **App Home**.
+2. Then, scroll down to **Show Tabs** and activate both ticks for *Home Tab* and *Message Tab*
+
+#### Setup Interactivity
+
+1. Then, go to *Features > Interactivity & Shortcuts* and activate the toggle
+2. In the text field **Request URL**, enter the domain of the server application \
+   suffixed by the path `/slack/events`, i.e., `https://nice-domain.com/slack/events`
+3. Next, go to *Features > Slash Commands* and hit **Create New Command**
+
+<img alt="Display Information" src="./docs/create-command.png" width="450px">
+
+4. Set it up as specified in the image (or to your liking), \
+   but remember to set your **Request URL** to `https://nice-domain.com/slack/events` \
+   and to tick **Escape channels, users, and links sent to your app**
+5. Hit **Save Changes**
 
 #### Setup Events
 
