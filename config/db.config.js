@@ -16,6 +16,7 @@ const defaultConfig = {
   port,
   database: pathname.substring(1),
   dialect: 'postgres',
+  ssl: true,
 };
 
 module.exports = {
