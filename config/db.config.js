@@ -16,13 +16,6 @@ const defaultConfig = {
   port,
   database: pathname.substring(1),
   dialect: 'postgres',
-  ssl: true,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
 };
 
 module.exports = {
@@ -34,5 +27,12 @@ module.exports = {
   },
   production: {
     ...defaultConfig,
+    ssl: true,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
   },
 };
