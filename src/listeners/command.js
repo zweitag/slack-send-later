@@ -92,7 +92,7 @@ async function processCommand({ command, client, context, payload, respond }) {
 
   const { token: userToken } = context.user;
 
-  const matches = /(.+)\s(in|at)\s(.+)$/g.exec(command.text);
+  const matches = /(.+)\s+(in|at)\s+(.+)$/gs.exec(command.text);
 
   if (!matches) {
     return respond({
@@ -102,7 +102,7 @@ async function processCommand({ command, client, context, payload, respond }) {
     });
   }
 
-  const message = command.text.replace(` ${matches[2]} ${matches[3]}`, '');
+  const message = matches[1];
   const time = matches[3];
 
   let date;
