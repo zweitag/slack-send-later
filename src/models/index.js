@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 const Sequelize = require('sequelize');
-const dbConfig = require('../../config/db.config.js')[process.env.APP_ENV || 'development'];
+const dbConfig = require('../../config/db.config.js')[process.env.NODE_ENV || 'development'];
 
 const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
   host: dbConfig.host,
